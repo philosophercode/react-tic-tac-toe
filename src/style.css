@@ -1,0 +1,45 @@
+h1,
+p {
+  font-family: Lato;
+}
+.container {
+  height: 360px;
+  font-size: 60px;
+  border: 2px solid black;
+  display: grid;
+}
+
+.row:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+}
+
+.col:not(:first-child) {
+  border-left: 1px solid black;
+}
+
+.col {
+  cursor: pointer;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+#O {
+  color: lightseagreen;
+}
+
+#X {
+  color: steelblue;
+}
+#-- {
+  background-color: lightgoldenrodyellow;
+}
