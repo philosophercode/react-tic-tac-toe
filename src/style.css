@@ -2,6 +2,7 @@ h1,
 p {
   font-family: Lato;
 }
+
 .container {
   height: 360px;
   font-size: 60px;
@@ -15,7 +16,7 @@ p {
 
 .row {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
 }
@@ -40,6 +41,7 @@ p {
 #X {
   color: steelblue;
 }
+
 #-- {
   background-color: lightgoldenrodyellow;
 }
