@@ -2,7 +2,6 @@ h1,
 p {
   font-family: Lato;
 }
-
 .container {
   height: 360px;
   font-size: 60px;
@@ -26,9 +25,11 @@ p {
 }
 
 .col {
+  line-height: 1.8;
   cursor: pointer;
-  justify-items: center;
-  align-items: center;
+  /* justify-items: center; */
+  /* align-self: center; */
+  /* justify-self: center; */
   text-align: center;
   height: 100%;
   width: 100%;
@@ -41,7 +42,10 @@ p {
 #X {
   color: steelblue;
 }
-
 #-- {
   background-color: lightgoldenrodyellow;
+}
+
+button {
+  margin-top: 20px;
 }
