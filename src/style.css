@@ -1,51 +1,90 @@
-h1,
-p {
-  font-family: Lato;
-}
-.container {
-  height: 360px;
-  font-size: 60px;
-  border: 2px solid black;
-  display: grid;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+html,
+body {
+  background-color: #e0e0e0;
 }
 
-.row:not(:last-child) {
-  border-bottom: 1px solid black;
+* {
+  font-family: 'Nunito Sans', sans-serif, Lato;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  justify-items: center;
+  row-gap: 30px;
+  width: 100%;
+  font-size: 60px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 270px);
+  grid-template-rows: 270px;
   justify-items: center;
   align-items: center;
-}
-
-.col:not(:first-child) {
-  border-left: 1px solid black;
+  column-gap: 30px;
 }
 
 .col {
-  line-height: 1.8;
+  line-height: 4.5;
   cursor: pointer;
-  /* justify-items: center; */
-  /* align-self: center; */
-  /* justify-self: center; */
   text-align: center;
   height: 100%;
   width: 100%;
+
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
 }
 
-#O {
+.header #O {
   color: lightseagreen;
 }
 
-#X {
+.header #X {
   color: steelblue;
 }
-#-- {
-  background-color: lightgoldenrodyellow;
+
+.container #O {
+  color: lightseagreen;
+  border-radius: 50px;
+  border-radius: 50px;
+  background: linear-gradient(225deg, #cacaca, #f0f0f0);
+  box-shadow: -20px 20px 60px #bebebe,
+    20px -20px 60px #ffffff;
+}
+
+.container #X {
+  color: steelblue;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;
 }
 
 button {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  background: linear-gradient(225deg, #f0f0f0, #cacaca);
+  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+  border: transparent;
+  font-size: 30px;
+  /* margin-top: 50px;
+  margin-left: 50px; */
+}
+
+button:active {
+  opacity: 1;
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1);
 }
