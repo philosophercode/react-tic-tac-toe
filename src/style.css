@@ -45,6 +45,10 @@ body {
     -20px -20px 60px #ffffff;
 }
 
+.win {
+  background-color: red;
+}
+
 .header #O {
   color: lightseagreen;
 }
