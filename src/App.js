@@ -10,11 +10,7 @@ export default function App() {
 }
 
 function TicTacToe() {
-  const xoCell = (row = null, col = null) => ({
-    value: "",
-    col,
-    row,
-  });
+  const xoCell = (row, col) => ({ col, row });
 
   const arrayOfN = (n) => [...Array(n).keys()];
 
@@ -69,7 +65,7 @@ function TicTacToe() {
   const tableToArray = (table) => {
     const tableFlipped = transposeArr(table);
     const [diagonalLR, diagonalRL] = diagonalArr(table);
-    let allArrays = [...table, ...tableFlipped, diagonalLR, diagonalRL];
+    const allArrays = [...table, ...tableFlipped, diagonalLR, diagonalRL];
     return allArrays.map(winArrEval).filter(Boolean).flat();
   };
 
