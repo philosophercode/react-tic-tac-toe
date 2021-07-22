@@ -30,7 +30,7 @@ function TicTacToe() {
 
   const [table, setTable] = useState(TABLE_DEFAULT);
   const [XO, setXO] = useState("X");
-  const [winArr, setWinArr] = useState([{ win: false }]);
+  const [winArr, setWinArr] = useState([]);
 
   const transposeArr = (arr) =>
     arr[0].map((_, colIdx) => arr.map((row) => row[colIdx]));
@@ -82,7 +82,10 @@ function TicTacToe() {
     setXO((currXO) => (currXO === "X" ? "O" : "X"));
   };
 
-  const handleReset = () => setTable(TABLE_DEFAULT);
+  const handleReset = () => {
+    setTable(TABLE_DEFAULT);
+    setWinArr([]);
+  };
 
   const classNamer = (celRow, cellCol) => {
     const win = winArr.some(
