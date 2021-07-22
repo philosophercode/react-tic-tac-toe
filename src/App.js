@@ -30,13 +30,13 @@ function TicTacToe() {
 
   const [table, setTable] = useState(TABLE_DEFAULT);
   const [XO, setXO] = useState("X");
-  const [winArr, setWinArr] = useState([]);
+  const [winArr, setWinArr] = useState([{ win: false }]);
 
   const transposeArr = (arr) =>
     arr[0].map((_, colIdx) => arr.map((row) => row[colIdx]));
 
   const diagonalArr = (table) => {
-    const diagonalLR = table.reduceRight(
+    const diagonalRL = table.reduceRight(
       (diagonal, row, rowIdx, tableArr) => [
         ...diagonal,
         row[tableArr.length - rowIdx - 1],
@@ -44,12 +44,12 @@ function TicTacToe() {
       [],
     );
 
-    const diagonalRL = table.reduce(
+    const diagonalLR = table.reduce(
       (diagonal, row, rowIdx) => [...diagonal, row[rowIdx]],
       [],
     );
 
-    return [diagonalLR, diagonalRL];
+    return [diagonalRL, diagonalLR];
   };
 
   const winArrEval = (arr) => {
@@ -60,27 +60,24 @@ function TicTacToe() {
     );
 
     if (xWin || oWin) {
-      // setWinArr(arr.map(({ row, col }) => ({ row, col })));
-      alert(`${value} Wins!`);
-      return true;
+      console.log(`${value} Wins!`);
+      return arr;
     }
     return false;
   };
 
-  const tableToArrays = (table) => {
+  const tableToArray = (table) => {
     const tableFlipped = transposeArr(table);
     const [diagonalLR, diagonalRL] = diagonalArr(table);
     let allArrays = [...table, ...tableFlipped, diagonalLR, diagonalRL];
-    allArrays.forEach(winArrEval);
+    return allArrays.map(winArrEval).filter(Boolean).flat();
   };
-
-  useEffect(() => {
-    tableToArrays(table);
-  }, [tableToArrays, table]);
 
   const handleClick = (row, col) => {
     const newTable = table;
     newTable[row][col].value = XO;
+    const winArray = tableToArray(newTable);
+    setWinArr([...winArray]);
     setTable([...newTable]);
     setXO((currXO) => (currXO === "X" ? "O" : "X"));
   };

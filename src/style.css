@@ -46,7 +46,8 @@ body {
 }
 
 .win {
-  background-color: red;
+  background: red !important;
+  color: white !important;
 }
 
 .header #O {
