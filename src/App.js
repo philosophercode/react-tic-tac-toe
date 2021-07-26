@@ -14,9 +14,9 @@ function TicTacToe() {
 
   const arrayOfN = (n) => [...Array(n).keys()];
 
-  const TABLE_DEFAULT = arrayOfN(3).map((row) => [
-    ...arrayOfN(3).map((col) => xoCell(row, col)),
-  ]);
+  const TABLE_DEFAULT = arrayOfN(3).map((row) =>
+    arrayOfN(3).map((col) => xoCell(row, col)),
+  );
 
   // const TABLE_DEFAULT = [
   //   [{}, {}, {}],
@@ -64,8 +64,8 @@ function TicTacToe() {
 
   const tableToArray = (table) => {
     const tableFlipped = transposeArr(table);
-    const [diagonalLR, diagonalRL] = diagonalArr(table);
-    const allArrays = [...table, ...tableFlipped, diagonalLR, diagonalRL];
+    const diagonals = diagonalArr(table);
+    const allArrays = [...table, ...tableFlipped, ...diagonals];
     return allArrays.map(winArrEval).filter(Boolean).flat();
   };
 
@@ -73,8 +73,8 @@ function TicTacToe() {
     const newTable = table;
     newTable[row][col].value = XO;
     const winArray = tableToArray(newTable);
-    setWinArr([...winArray]);
-    setTable([...newTable]);
+    setWinArr(winArray);
+    setTable(newTable);
     setXO((currXO) => (currXO === "X" ? "O" : "X"));
   };
 
